@@ -1,18 +1,22 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom';
+import Navbar from "./Navbar";
+import Sidebar from "./Sidebar";
 
 const DashboardLayout = () => {
-  return (
-    <div>
-        <nav className="h-[100px] bg-black">
-            <p className="text-white">Navbar</p>
-        </nav>
-        <div className=" p-12 bg-gray-200">
-            <p className="text-black">main</p>
-            <Outlet/>
-        </div>
-    </div>
-  )
-}
+	return (
+		<section className="w-screen h-screen flex">
+			<Sidebar />
+			<section className="h-full flex-1">
+				<Navbar />
+				<main className="h-[calc(100vh-70px)] bg-[#FAFAFA] overflow-y-hidden py-[11px]">
+					<div className="h-full overflow-y-auto px-[35px]">
+						<Outlet />
+					</div>
+				</main>
+			</section>
+		</section>
+	);
+};
 
 export default DashboardLayout

@@ -1,12 +1,30 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Button from "../../../components/buttons/Button";
 import OtpInput from "react-otp-input";
-import Checkbox from "../../../components/form-inputs/Checkbox";
-import { Link } from "react-router-dom";
-import TextInput from "../../../components/form-inputs/TextInput";
+import { setPin } from "../../../services/sign-up";
+import { toast } from "react-hot-toast";
 
 const CreatePin = () => {
 	const otp = useState("");
+	const loading = useState(false);
+
+	const handleSubmit = async () => {
+		loading[1](true);
+		try {
+			const response = await setPin({ pin: otp[0] });
+			console.log(response, "response");
+			loading[1](false);
+		} catch (error) {
+			console.log(error, "error");
+			toast.error(
+				"Error seting your pin. Please try again or contact support."
+			);
+			loading[1](false);
+		}
+	};
+
+	const allowSubmit = otp[0].trim().length === 4;
+
 	return (
 		<section className="flex flex-col items-center">
 			<h5 className="text-[22px]  text-fs-deep-black font-medium">
@@ -33,7 +51,13 @@ const CreatePin = () => {
 					Provide your secret transaction pin
 				</p>
 				<div className="flex justify-center">
-					<Button label="Done" width="w-full" />
+					<Button
+						disabled={!allowSubmit || loading[0]}
+						loading={loading[0]}
+						onClick={handleSubmit}
+						label="Done"
+						width="w-full"
+					/>
 				</div>
 			</div>
 		</section>
