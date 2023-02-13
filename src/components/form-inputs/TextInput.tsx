@@ -12,6 +12,7 @@ interface ITextInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
 	error?: string;
 	label?: string;
 	type?: "text" | "number" | "password" | "email" | "tel" | "date";
+	inputBg?: string;
 }
 
 const TextInput = ({
@@ -25,6 +26,7 @@ const TextInput = ({
 	error = "",
 	label,
 	type = "text",
+	inputBg = "bg-transparent",
 
 	placeholder = "",
 	...props
@@ -48,7 +50,7 @@ const TextInput = ({
 				</label>
 			)}
 			<div
-				className={`w-full h-[3rem] overflow-hidden relative items-center bg-transparent border-[#E7E7E7] border-solid duration-700 flex transition rounded-[5px] border focus-within:border-blue-300`}
+				className={`w-full h-[3rem] overflow-hidden relative items-center ${inputBg} border-[#E7E7E7] border-solid duration-700 flex transition rounded-[5px] border focus-within:border-blue-300`}
 			>
 				{type === "password" && (
 					<img

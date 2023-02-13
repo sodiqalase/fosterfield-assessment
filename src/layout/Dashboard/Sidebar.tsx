@@ -13,27 +13,27 @@ const sideBarList = [
 		icon: "send",
 	},
 	{
-		path: "/dashboard/wallet",
+		path: "/dashboard",
 		label: "Wallet",
 		icon: "wallet",
 	},
 	{
-		path: "/dashboard/beneficiary",
+		path: "/dashboard",
 		label: "Beneficiary",
 		icon: "beneficiary",
 	},
 	{
-		path: "/dashboard/transaction",
+		path: "/dashboard/transactions",
 		label: "Transaction",
 		icon: "transaction",
 	},
 	{
-		path: "/dashboard/help",
+		path: "/dashboard",
 		label: "Get Help",
 		icon: "help",
 	},
 	{
-		path: "/dashboard/settings",
+		path: "/dashboard",
 		label: "Settings",
 		icon: "settings",
 	},
@@ -73,9 +73,9 @@ const Sidebar = () => {
 								<span
 									className={`text-[14px] ${
 										isActive
-											? "text-fs-deep-black"
+											? "text-fs-deep-black font-semibold"
 											: "text-fs-light-gray"
-									} ml-5 font-semibold`}
+									} ml-5`}
 								>
 									{item.label}
 								</span>
@@ -109,9 +109,9 @@ const Sidebar = () => {
 								<span
 									className={`text-[14px] ${
 										isActive
-											? "text-fs-deep-black"
+											? "text-fs-deep-black font-semibold"
 											: "text-fs-light-gray"
-									} ml-5 font-semibold`}
+									} ml-5`}
 								>
 									{item.label}
 								</span>

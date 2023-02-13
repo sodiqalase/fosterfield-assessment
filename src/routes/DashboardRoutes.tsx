@@ -3,10 +3,7 @@ import type { RouteObject } from 'react-router-dom';
 import DashboardLayout from "../layout/Dashboard/DashboardLayout";
 import Home from "../pages/Dashboard/Home/Home";
 import Send from "../pages/Dashboard/Send/Send";
-
-
-
-
+import TransactionsPage from "../pages/Dashboard/Transactions/TransactionsPage";
 
 const dashRoutes: RouteObject[] = [
 	{
@@ -17,6 +14,10 @@ const dashRoutes: RouteObject[] = [
 			{
 				path: "send",
 				element: <Send />,
+			},
+			{
+				path: "transactions",
+				element: <TransactionsPage />,
 			},
 		],
 	},

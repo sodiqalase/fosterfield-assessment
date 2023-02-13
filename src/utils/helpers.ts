@@ -46,3 +46,28 @@ export const clearToken = () => {
 export const clearStorage = () => {
 	localStorage.clear();
 };
+
+export const classes = (classes: Array<string | undefined | null | boolean>) =>
+	classes.filter((s) => typeof s === "string").join(" ");
+
+export const evaluateStatusColors = (val: string) => {
+	const verb = val.toLowerCase();
+
+	switch (verb) {
+		case "failed": {
+			return "text-red-500 bg-red-100";
+		}
+
+		case "pending": {
+			return "text-yellow-500 bg-yellow-100";
+		}
+
+		case "success": {
+			return "text-green-500 bg-green-100";
+		}
+
+		default: {
+			return "bg-tranparent";
+		}
+	}
+};
