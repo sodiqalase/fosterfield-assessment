@@ -41,7 +41,6 @@ const sideBarList = [
 
 const Sidebar = () => {
 	const { pathname } = useLocation();
-	console.log(pathname.split("/")[2], "split");
 
 	return (
 		<aside className="w-[187px] shadow px-2 bg-white py-[100px] h-full flex flex-col">
