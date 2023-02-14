@@ -1,16 +1,15 @@
-import React from 'react'
 import Balance from "./Balance";
 import Statistics from "./Statistics";
 import Transactions from "./Transactions";
 
 const Home = () => {
-  return (
+	return (
 		<section>
 			<Balance />
 			<Statistics />
 			<Transactions />
 		</section>
-  );
-}
+	);
+};
 
-export default Home
+export default Home;

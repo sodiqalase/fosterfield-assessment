@@ -11,12 +11,12 @@ import dayjs from "dayjs";
 import { currencyFormat } from "../../../utils/helpers";
 
 const Transactions = () => {
-	// const { data } = useFetch({
-	// 	url: "user-wallet-transaction",
-	// 	key: "transactionSummary",
-	// 	params: null,
-	// });
-	// data?.data?.data?.transaction ??
+	useFetch({
+		url: "user-wallet-transaction",
+		key: "transactionSummary",
+		params: null,
+	});
+	
 
 	const transactionData: ITransactions[] = [
 		{

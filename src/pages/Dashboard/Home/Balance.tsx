@@ -1,12 +1,16 @@
-import React from "react";
 import useFetch from "../../../hooks/useFetch";
 
 const Balance = () => {
-	// const { data } = useFetch({
-	// 	url: "users/wallets/transactions/summaries",
-	// 	key: "transactionSummary",
-	// 	params: null,
-	// });
+	const { data } = useFetch({
+		url: "user-wallet-transaction",
+		key: "transactionSummary",
+		params: null,
+	});
+
+	const availableBalance = data?.data?.data?.wallet?.[0]?.balance ?? "0.00";
+	const ledgerBalance =
+		data?.data?.data?.wallet?.[0]?.ledger_balance ?? "0.00";
+	const currency = data?.data?.data?.wallet?.[0]?.currency ?? "NGN";
 
 	return (
 		<section className="flex rounded-[6px] shadow bg-white">
@@ -19,15 +23,17 @@ const Balance = () => {
 					<p className="text-[11px] text-white">Available Balance</p>
 				</div>
 				<p className="mt-5 text-white font-bold text-[20px]">
-					12,345 NGN
+					{availableBalance} {currency}
 				</p>
-				<p className="mt-[6px] text-white text-[11px]">-N180.000</p>
+				<p className="mt-[6px] text-white text-[11px]">
+					N{ledgerBalance}
+				</p>
 			</div>
 			<div className="p-5 rounded-[6px] border border-slate-100 w-[220px] bg-white">
 				<p className="text-[11px] ">Savings</p>
 
-				<p className="mt-5  font-bold text-[20px]">831,071 NGN</p>
-				<p className="mt-[6px]  text-[11px]">-N180.000</p>
+				<p className="mt-5  font-bold text-[20px]">0.00 NGN</p>
+				<p className="mt-[6px]  text-[11px]">N80.00</p>
 			</div>
 		</section>
 	);

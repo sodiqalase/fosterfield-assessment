@@ -28,6 +28,15 @@ export const removeNonNumeric = (value: any) => {
 	return value.toString().replace(/[^0-9]/g, "");
 };
 
+export const addCommas = (value: string) =>
+	value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
+export const removeNonNumeric2 = (value: any) => {
+	let _value;
+	_value = value.toString().replace(/[^0-9]/g, "");
+	return _value[0] === "0" ? _value.slice(1) : _value;
+};
+
 export const hasToken = () => {
 	return localStorage.getItem(tokenName) ? true : false;
 };

@@ -1,4 +1,3 @@
-import React from "react";
 import { ITransactions } from "../../../interfaces/transactions";
 import dayjs from "dayjs";
 import Table from "../../../components/Table/Table";

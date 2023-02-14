@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
-interface ITextInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
+interface ITextInputProps
+	extends React.InputHTMLAttributes<HTMLTextAreaElement> {
 	min?: string | number | undefined;
 	required?: boolean;
 	value?: string;
@@ -8,14 +9,15 @@ interface ITextInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
 	placeholder?: string;
 	onClick?: (event: any) => void;
 	onBlur?: (event: any) => void;
-	onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+	onChange?: (event: React.ChangeEvent<HTMLTextAreaElement>) => void;
 	error?: string;
 	label?: string;
 	type?: "text" | "number" | "password" | "email" | "tel" | "date";
 	inputBg?: string;
+	rows?: number;
 }
 
-const TextInput = ({
+const TextArea = ({
 	required = true,
 	value = "",
 	name,
@@ -29,6 +31,7 @@ const TextInput = ({
 	inputBg = "bg-transparent",
 
 	placeholder = "",
+	rows = 3,
 	...props
 }: ITextInputProps) => {
 	const showPassword = useState(false);
@@ -50,7 +53,7 @@ const TextInput = ({
 				</label>
 			)}
 			<div
-				className={`w-full h-[3rem] overflow-hidden relative items-center ${inputBg} border-[#E7E7E7] border-solid duration-700 flex transition rounded-[5px] border focus-within:border-blue-300`}
+				className={`w-full relative items-center ${inputBg} border-[#E7E7E7] border-solid duration-700 flex transition rounded-[5px] border focus-within:border-blue-300`}
 			>
 				{type === "password" && (
 					<img
@@ -60,10 +63,9 @@ const TextInput = ({
 						alt=""
 					/>
 				)}
-				<input
-					min={min}
-					className={`w-full block h-full transition pl-[12px] bg-transparent border-none outline-none shadow-none text-[14px] font-normal text-fs-light-black placeholder:text-fs-light-gray placeholder-fs-light-gray`}
-					type={showPassword[0] ? "text" : type}
+				<textarea
+					className={`w-full h-full block transition p-[15px] bg-transparent border-none outline-none shadow-none text-[14px] font-normal text-fs-light-black placeholder:text-fs-light-gray placeholder-fs-light-gray`}
+					rows={rows}
 					onChange={onChange}
 					required={required}
 					onClick={onClick}
@@ -73,7 +75,7 @@ const TextInput = ({
 					value={value}
 					placeholder={placeholder}
 					{...props}
-				/>
+				></textarea>
 			</div>
 
 			{error && (
@@ -85,4 +87,4 @@ const TextInput = ({
 	);
 };
 
-export default TextInput;
+export default TextArea;
